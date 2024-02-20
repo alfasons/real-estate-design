@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('output.css');
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            /* top: 100%; */
+            top: calc(100% + 10px);
+            z-index: 1;
+        }
+
+        #dropdownNavbarLink:hover .sub-menu,
+        #dropdownNavbarLink:hover::after {
+            display: block;
+        }
+
+        /* Without this, the submenu will always dissappear as soon as you move away from #dropdownNavbarLink */
+        #dropdownNavbarLink::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            /* same as the gap */
+            height: 10px;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="text-gray-600 body-font px-4 md:px-5">
+        <div class="container mx-auto flex flex-wrap md:p-5 py-4 px-0 justify-between items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <img src="https://floridahomeownersolutions.com/wp-content/uploads/2022/01/florida-home-owner-solution.svg"
+                    class="max-w-[140px] md:max-w-[250px]">
+            </a>
+            <div class="md:ml-auto flex flex-wrap items-stretch space-x-8 text-base font-medium justify-between">
+                <div class="flex items-center space-x-2 -mt-3 md:mt-0">
+                    <div class="bg-[#20C85F] text-white rounded-full p-2 hidden md:block">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25c1.12.37 2.32.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02z" />
+                        </svg>
+                    </div>
+                    <div class="text-xl cursor-pointer">
+                        <h3 class="text-[#20C85F] hidden md:block">Call Now to Get Started</h3>
+                        <p class="md:text-2xl text-lg tracking-wider font-bold">1 (800) 300-4663</p>
+                    </div>
+                    <button class="md:hidden block" type="button" id="open-mobile-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z" />
+                        </svg>
+                    </button>
+                </div>
+                <div
+                    class="hidden bg-[#20C85F] hover:bg-[#33D977]  text-xl md:flex items-center justify-center px-12 cursor-pointer text-white rounded uppercase">
+                    get an offer</div>
+            </div>
+        </div>
+        <button type="submit"
+            class="w-full md:hidden font-semibold uppercase py-3 mb-6 md:mb-0 mx-auto flex justify-center text-white rounded bg-[#20C85F]">
+            get an offer
+        </button>
+    </header>
+
+    <header id="menuContainer" class="hidden md:block text-gray-600 body-font">
+        <div class="bg-[#20C85F] px-14 flex flex-wrap p-5 py-2 flex-col md:flex-row items-center">
+            <a href="#" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="m12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81zM12 3L2 12h3v8h6v-6h2v6h6v-8h3" />
+                </svg>
+            </a>
+            <ul
+                class="md:ml-auto flex flex-wrap items-center space-x-6 text-base text-white font-medium justify-between">
+                <li class="text-[#0D3B66]">Home</li>
+                <!-- <li class="hover:text-[#0D3B66]">About</li> -->
+                <li href="#" class="relative hover:text-[#0D3B66]" id="dropdownNavbarLink">
+                    <div class="flex items-center space-x-2 cursor-pointer">
+                        Services
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                        </svg>
+                    </div>
+
+                    <div class="sub-menu absolute -left-4 rounded-lg shadow w-56 bg-white border">
+                        <ul class="py-2 text-sm text-gray-700 divide-y divide-gray-100">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:text-[#377ef9]">Foreclosure</a>
+                            </li>
+                            <!-- <li>
+                                <a href="#" class="block px-4 py-2 hover:text-[#377ef9]">Short Sale</a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </li>
+                <!-- <li class="hover:text-[#0D3B66]">Testimonials</li> -->
+                <li class="hover:text-[#0D3B66]">Contact</li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="bg-[#C4D6DA] py-4 h-28 bg-no-repeat bg-center bg-scroll bg-cover"
+        style="background-image: url(images/inner-page-header-image.jpg);">
+        <div class="md:px-16 px-4">
+            <h3 class="md:text-4xl text-2xl">Get In Touch With Us!</h3>
+            <div class="flex items-center  mt-4">
+                <a href="#" class="text-blue-600 hover:text-blue-600">Home</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="text-blue-600"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor" d="m13.292 12l-4.6-4.6l.708-.708L14.708 12L9.4 17.308l-.708-.708z" />
+                </svg>
+                Contact
+            </div>
+        </div>
+    </section>
+
+    <div
+        class="flex flex-col md:flex-row items-center space-x-10 mt-8 md:mt-0 pt-4 bg-[#f7fafb] md:py-6 md:pt-0 pb-6 px-16 border-b border-b-[#dbe5e8]">
+        <em class="md:text-2xl text-base md:text-left text-center">Trusted By Thousands Of Homeowners For Over 20
+            Years.</em>
+
+        <div class="flex items-center justify-center mt-3 md:mt-0 md:space-x-10 space-x-4">
+            <img src="https://floridahomeownersolutions.com/wp-content/uploads/2022/01/American_Broadcasting_Company_Logo.svg"
+                alt="">
+            <img src="https://floridahomeownersolutions.com/wp-content/uploads/2022/01/zillow.svg" alt="">
+            <img src="https://floridahomeownersolutions.com/wp-content/uploads/2022/01/CNBC.svg" alt="">
+            <img src="https://floridahomeownersolutions.com/wp-content/uploads/2022/01/bigger-pockets.svg" alt="">
+            <img src="https://floridahomeownersolutions.com/wp-content/uploads/2022/01/CBS-Symbol.svg" alt="">
+            <img src="https://floridahomeownersolutions.com/wp-content/uploads/2022/01/fox.svg" alt="">
+        </div>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-2 md:gap-12 px-4 md:px-16 my-16 mb-24">
+        <div>
+            <div class="text-[27px] font-medium">
+                <span class="block">We Help You Keep Your Home,</span>
+                <span class="block">Sell Your Home,</span>
+                Or We Buy Your Home!
+            </div>
+
+            <p class="text-lg my-4">Contact Florida Home Owners Solutions Today! Its FREE!</p>
+
+            <div class="space-y-3 text-sm">
+                <input type="text"
+                    class="w-full py-2 ps-3.5 text-sm text-gray-400 placeholder:text-gray-600 border border-gray-300 outline-none focus:ring-0 focus:outline-none  rounded"
+                    placeholder="Property Address" />
+                <button type="submit" class="w-full py-2 flex justify-center text-white rounded bg-[#20C85F]">
+                    See If You Qualify
+                </button>
+            </div>
+        </div>
+
+        <div class="map space-y-4">
+            <div class="flex gap-3 bg-[#F8FAFA] border p-3 rounded-lg">
+                <div class="text-[#146a7a]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M20 15.5c-1.2 0-2.5-.2-3.6-.6h-.3c-.3 0-.5.1-.7.3l-2.2 2.2c-2.8-1.5-5.2-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1c-.3-1.1-.5-2.4-.5-3.6c0-.5-.5-1-1-1H4c-.5 0-1 .5-1 1c0 9.4 7.6 17 17 17c.5 0 1-.5 1-1v-3.5c0-.5-.5-1-1-1M5 5h1.5c.1.9.3 1.8.5 2.6L5.8 8.8C5.4 7.6 5.1 6.3 5 5m14 14c-1.3-.1-2.6-.4-3.8-.8l1.2-1.2c.8.2 1.7.4 2.6.4zm-4-7h2a5 5 0 0 0-5-5v2a3 3 0 0 1 3 3m4 0h2c0-5-4.03-9-9-9v2c3.86 0 7 3.13 7 7" />
+                    </svg>
+                </div>
+                <strong>Phone:</strong>
+                800-300-HOME (4663)
+            </div>
+            <div class="flex gap-3 bg-[#F8FAFA] border p-3 rounded-lg">
+                <div class="text-[#146a7a]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M18.27 6c1.01 2.17.78 4.73-.33 6.81c-.94 1.69-2.29 3.12-3.44 4.69c-.5.7-1 1.45-1.37 2.26c-.13.27-.22.55-.32.83c-.1.28-.19.56-.28.84c-.09.26-.2.57-.53.57c-.39 0-.5-.44-.58-.74c-.24-.73-.48-1.43-.85-2.1c-.42-.79-.95-1.52-1.49-2.23zM9.12 8.42l-3.3 3.92c.61 1.29 1.52 2.39 2.39 3.49c.21.25.42.51.62.78L13 11.67l-.04.01c-1.46.5-3.08-.24-3.66-1.68c-.08-.17-.14-.37-.18-.57a3.05 3.05 0 0 1 0-1zm-2.54-3.8l-.01.01c-1.62 2.05-1.9 4.9-.93 7.31L9.63 7.2l-.05-.05zm7.64-2.26L11 6.17l.04-.01c1.34-.46 2.84.12 3.52 1.34c.15.28.27.58.31.88c.06.38.08.65.01 1.02v.01l3.2-3.8a6.988 6.988 0 0 0-3.85-3.24zM9.89 6.89l3.91-4.65l-.04-.01C13.18 2.08 12.59 2 12 2c-1.97 0-3.83.85-5.15 2.31l-.02.01z" />
+                    </svg>
+                </div>
+                <strong>Address:</strong>
+                2021 Tyler Street Suite 101, Hollywood, FL 33020
+            </div>
+
+            <div class="pt-8 text-red-600">Add google map here using your own key</div>
+        </div>
+
+    </div>
+
+    <footer class="text-white body-font bg-[#242D3C] px-16">
+        <div class="grid gap-4 md:gap-0 md:grid-cols-2 py-8">
+            <div class="w-72 flex-shrink-0 md:mx-0 mx-auto md:text-left">
+                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                    <img src="https://floridahomeownersolutions.com/wp-content/uploads/2022/01/florida-homeowner-solution.svg"
+                        alt="">
+                </a>
+                <p class="mt-8 text-sm text-white">We specialize in helping homeowners of all types facing issues with
+                    their properties. With our experience, we will help you keep your home if your lender allows it. Or
+                    we help sell or buy your home.</p>
+            </div>
+            <div class="flex flex-col items-center w-full  justify-center">
+                <div class="w-full md:px-4 space-y-4 font-light">
+                    <h2 class="title-font  tracking-widest text-base mb-3 font-semibold">Address</h2>
+
+                    <div class="flex items-start space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7M7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9" />
+                            <circle cx="12" cy="9" r="2.5" fill="currentColor" />
+                        </svg>
+
+                        <div>
+                            <span class="block">Florida Homeowner Solutions</span>
+                            <span class="block">Tyler Street Suite 101</span>
+                            Hollywood, FL 33020
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M15 12h2c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3m4 0h2a9 9 0 0 0-9-9v2c3.87 0 7 3.13 7 7m1 3.5c-1.25 0-2.45-.2-3.57-.57c-.1-.03-.21-.05-.31-.05c-.26 0-.51.1-.71.29l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1c0 9.39 7.61 17 17 17c.55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1M5.03 5h1.5c.07.88.22 1.75.45 2.58l-1.2 1.21c-.4-1.21-.66-2.47-.75-3.79M19 18.97c-1.32-.09-2.6-.35-3.8-.76l1.2-1.2c.85.24 1.72.39 2.6.45z" />
+                        </svg>
+
+                        <div>
+                            1 (800) 300-4663
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="border-top: 1px solid rgba(255,255,255,.1);">
+            <div class="flex justify-center text-sm py-3 md:text-left text-center">
+                Copyright © 2024 Florida Homeowner Solutions
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="drawer"
+        class="fixed top-0 left-0 md:hidden w-screen  h-screen bg-[#F4F4F4] z-40 p-4 pb-16 overflow-y-auto  transition-transform -translate-x-full">
+        <button id="close-drawer" type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example"
+            class="text-[#7A7A7A] bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-4 end-4 flex items-center justify-center">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+        </button>
+
+        <div class="flex flex-col items-center justify-center text-center  text-text-title mt-20 text-xl space-y-4">
+            <div class="text-[#0D3B66] hover:text-[#0D3B66]">Home</div>
+            <div class="border-b-2 border-b-gray-400 w-52"></div>
+            <div class="w-52 hover:text-[#0D3B66] flex flex-col justify-center items-center">
+                <button type="button" id="mobile-dropdown" class="flex items-center space-x-2 cursor-pointer">
+                    Services
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                    </svg>
+                </button>
+
+                <div class="submenu flex flex-col text-left w-full divide-y divide-[#0D3B66] text-base mt-4"
+                    style="display: none;">
+                    <a href="#" class="py-1">Foreclosure</a>
+                    <!-- <a href="#" class="py-1">Dashboard</a> -->
+                </div>
+            </div>
+            <div class="border-b-2 border-b-gray-400 w-52"></div>
+            <div class="hover:text-[#0D3B66]">Contact</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var openButton = document.getElementById('open-mobile-menu');
+            var closeButton = document.getElementById('close-drawer');
+            var drawer = document.getElementById('drawer');
+
+            openButton.addEventListener('click', function () {
+                drawer.classList.remove('-translate-x-full');
+            });
+
+            closeButton.addEventListener('click', function () {
+                drawer.classList.add('-translate-x-full');
+            });
+
+            // Toggle Menu
+            var menuLink = document.querySelector("#mobile-dropdown");
+
+            menuLink.addEventListener("click", function ($event) {
+                var x = $event.currentTarget.nextElementSibling;
+                if (x && x.classList.contains('submenu')) {
+                    // x is the next sibling with class 'submenu'
+                    if (x.style.display === "block") {
+                        x.style.display = "none";
+                    } else {
+                        x.style.display = "block";
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
